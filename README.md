@@ -1,55 +1,92 @@
-# ASDDS citation and artifact reference
+# ASDDS research code and handoff
 
-Use this repository to find citation-ready metadata and identify which part of
-the ASDDS research archive supports a result. The actual research archive
-remains private; this repository contains no raw or cleaned data, analysis code,
-figures, manuscript files, or correspondence.
+This repository is a public code reference for the ASDDS bee sleep motion-
+detection experiment. It includes the recommended Jetson runtime, preserved
+historical detector scripts, data-cleaning and plotting tools, MATLAB comparison
+functions, and offline tests. It does not include raw or cleaned experiment
+data, private correspondence, condition plots, or manuscript files.
 
-## Cite the archive
+## Quick start: inspect and test the code
 
-The preferred citation, formatted for copy/paste, is in [`CITATION.md`](CITATION.md).
-GitHub also reads [`CITATION.cff`](CITATION.cff) and offers APA and BibTeX in
-**Cite this repository**. A standalone BibTeX entry is in
-[`CITATION.bib`](CITATION.bib).
+Requirements: Python 3.10 or newer. Analysis scripts use the dependencies in
+[`requirements-analysis.txt`](requirements-analysis.txt). The live Jetson
+runtime additionally uses JetPack-provided OpenCV and Jetson.GPIO.
 
-The citation identifies the exact ASDDS Git commit `a223963`
-([full commit](https://github.com/FluentFlier/ASDDS/commit/a223963cd1da8d89148b502b7b12af6d4eefb553)).
-The canonical repository is [`FluentFlier/ASDDS`](https://github.com/FluentFlier/ASDDS).
-It is private, so readers need an invitation to inspect the cited materials.
+```bash
+git clone https://github.com/FluentFlier/ASDDS-code.git
+cd ASDDS-code
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-analysis.txt
+python -m unittest discover -s code/tests
+```
 
-## Find the supporting artifact
+The tests are hardware-independent. They do not verify CSI camera, GPIO, LED,
+or solenoid behavior on a physical Jetson.
 
-Cite the archive once, then name the exact path and commit for each artifact used.
-For numerical cleaning totals, cite the manifest; for a specific row or source,
-include the corresponding record audit and source filename.
+## Use the code
 
-| Use | ASDDS artifact |
+### Jetson acquisition
+
+The recommended clean detector is `code/led_sleep_detect_clean.py` with its
+state and persistence helper `code/sleep_bout_state.py`. The deployable mirror
+is under [`jetson_handoff/PyPro/`](jetson_handoff/PyPro/). Use launcher option
+2 only; legacy options remain for historical reference and are not equally
+validated. Start with [`code/JETSON_HANDOFF.md`](code/JETSON_HANDOFF.md).
+
+### Clean and analyze logs
+
+The rescue and remaining-primary cleaning scripts operate on JSON inputs you
+supply. This repository does not ship those experimental files. The commands
+and required directory layout are documented in
+[`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md); cleaning rules and output
+schemas are in [`docs/DATA_AND_CLEANING.md`](docs/DATA_AND_CLEANING.md).
+
+### MATLAB comparison
+
+Reusable MATLAB functions are in [`matlab/`](matlab/README.md). They require
+paired Jetson JSON and SwarmSight CSV inputs. Those inputs are not distributed
+here. See the MATLAB README for the expected formats and run commands.
+
+## Code map
+
+| Need | Source |
 |---|---|
-| Focused 34-session rescue outputs and totals | `json files to be rescued/cleaned/rescue_manifest.json` |
-| Focused rescue row provenance | `json files to be rescued/cleaned/rescue_record_audit.json` |
-| Remaining cleaned primary logs and totals | `bee_motion_logs/cleaned/cleaning_manifest.json` |
-| Remaining primary row provenance | `bee_motion_logs/cleaned/cleaning_record_audit.json` |
-| Cleaning rules and schema descriptions | `docs/DATA_AND_CLEANING.md` |
-| Decisions and unresolved scientific choices | `docs/DECISIONS.md` and `docs/PROFESSOR_REVIEW.md` |
-| Acquisition and rescue software | `code/` and `rescue_sleep_logs.py` |
-| MATLAB comparison method | `matlab/` |
-| Derived condition plots | `output/pdf/` |
-| Working manuscript for coauthor review | `output/professor_handoff_20260722/ASDDS_manuscript_for_professor_review.pdf` |
+| Recommended Jetson detector | `code/led_sleep_detect_clean.py` |
+| Detector state and atomic JSON writer | `code/sleep_bout_state.py` |
+| Deployable Jetson copy | `jetson_handoff/PyPro/` |
+| Focused rescue cleaner | `rescue_sleep_logs.py` |
+| Remaining-primary cleaner | `clean_bee_motion_logs.py` |
+| Rescue comparison plots and condition pages | `plot_rescue_comparisons.py`, `build_condition_plot_pages.py` |
+| MATLAB Jetson–SwarmSight comparison | `matlab/` |
+| Offline tests | `code/tests/` |
 
-Use a commit-specific URL of the form
-`https://github.com/FluentFlier/ASDDS/blob/a223963cd1da8d89148b502b7b12af6d4eefb553/PATH`.
-Replace `PATH` with the artifact path, URL-encoding spaces. The cited commit is
-an archived repository snapshot; current working notes may have changed since
-that commit.
+## Cite and identify the code version
 
-## Publication and access limits
+GitHub's **Cite this repository** entry is generated from
+[`CITATION.cff`](CITATION.cff). Human-readable citation instructions are in
+[`CITATION.md`](CITATION.md), with BibTeX in [`CITATION.bib`](CITATION.bib).
+Cite a release or commit permalink so readers can identify the exact code.
 
-This is a working coauthor-review archive, not a DOI-backed publication or a
-final biological dataset. No associated paper DOI or data DOI is claimed here.
-Author order and reuse licenses have not been confirmed. Do not infer treatment
-conditions from filenames or treat lower-bound endpoints as known wake times.
-The archive documents remaining scientific and provenance limitations.
+The code was copied from the canonical private research archive at ASDDS commit
+[`a223963`](https://github.com/FluentFlier/ASDDS/commit/a223963cd1da8d89148b502b7b12af6d4eefb553).
+The archive remains private; it contains experimental data and other research
+materials that are not included here.
 
-A persistent DOI should be assigned to a cleared, fixed release of the actual
-research archive, with confirmed authors and license. The public citation
-reference itself is not a substitute for that archival release.
+## Important limitations
+
+- The source is released under BSD-3-Clause. See [`LICENSE`](LICENSE) for the
+  terms of reuse and redistribution.
+- The source snapshot is a research handoff, not a packaged or supported
+  software release.
+- Historical detector scripts and acquisition settings are not proof of what
+  ran in each 2025 experiment.
+- Cleaning outputs depend on the separate research data archive; cleaned
+  outputs preserve overlaps and label checkpoint endpoints as lower bounds.
+- Jetson hardware behavior still requires on-device validation.
+
+## Status
+
+This code reference is a research handoff. Author order and a fixed archival
+release are not yet confirmed. See the canonical archive's
+release notes for scientific and data-status limitations.

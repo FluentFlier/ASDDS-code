@@ -1,0 +1,6 @@
+# Desktop analysis and figure generation only.
+# The Jetson runtime uses JetPack-provided OpenCV and Jetson.GPIO instead.
+matplotlib>=3.8,<4
+numpy>=1.24,<3
+pandas>=2.0,<3
+reportlab>=4.0,<5

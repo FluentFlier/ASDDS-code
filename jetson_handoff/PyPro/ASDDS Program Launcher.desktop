@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ASDDS Bee Sleep Launcher
+Comment=Start an ASDDS bee sleep experiment
+Exec=/bin/bash -lc "$HOME/PyPro/launch_asdds.sh"
+Icon=utilities-terminal
+Terminal=true
+Categories=Science;Utility;
+StartupNotify=true

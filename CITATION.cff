@@ -1,11 +1,10 @@
 cff-version: 1.2.0
 message: >-
-  Cite this working archive using the exact version below. The listed author
-  order is provisional and must be confirmed before publication. The archive
-  is private and available by invitation; no DOI is assigned.
+  This is a development snapshot; cite the exact release or commit used. Individual
+  author attribution remains provisional and requires lab confirmation.
 title: >-
-  Bee sleep motion-detection experiment and data rescue
-type: dataset
+  ASDDS research code and handoff
+type: software
 authors:
   - given-names: Anirudh
     family-names: Manjesh
@@ -20,19 +19,17 @@ authors:
   - given-names: Hong
     family-names: Lei
 year: 2026
-version: a223963
-repository-code: https://github.com/FluentFlier/ASDDS
-url: https://github.com/FluentFlier/ASDDS/tree/a223963cd1da8d89148b502b7b12af6d4eefb553
+license: BSD-3-Clause
+repository-code: https://github.com/FluentFlier/ASDDS-code
+url: https://github.com/FluentFlier/ASDDS-code
 abstract: >-
-  Working research archive for an automated honey-bee sleep-like immobility
-  experiment. The repository contains Jetson acquisition code, original logs,
-  structurally cleaned datasets, record-level audits, comparison figures,
-  reports, and reproducibility checks. It remains private and under scientific
-  and release review.
+  Public code reference containing the recommended Jetson bee-sleep detector,
+  historical detector scripts, audited cleaning and plotting code, MATLAB
+  comparison functions, and offline tests. Experimental data and private
+  correspondence are not included. Released under BSD-3-Clause.
 keywords:
   - Apis mellifera
   - sleep-like immobility
   - computer vision
-  - closed-loop stimulation
   - Jetson Nano
   - behavioral neuroscience

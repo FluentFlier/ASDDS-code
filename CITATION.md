@@ -1,36 +1,30 @@
 # Citation
 
-## Recommended reference
+## Recommended software citation
 
 Manjesh, A., Ellis, A., Leyko, J., Smith, B. H., Pavlic, T., & Lei, H. (2026).
-*Bee sleep motion-detection experiment and data rescue* (repository snapshot
-`a223963`) [Working research archive: data and software]. GitHub.
-https://github.com/FluentFlier/ASDDS/tree/a223963cd1da8d89148b502b7b12af6d4eefb553
+*ASDDS research code and handoff* (development snapshot derived from ASDDS commit
+`a223963`) [Computer software]. GitHub.
+https://github.com/FluentFlier/ASDDS-code
 
-**Status:** This reference follows the author order currently listed in the
-working archive's `CITATION.cff`; the order is provisional and must be confirmed
-by the authors before publication. The cited repository is private and requires
-access by invitation. No DOI is assigned.
+**Status:** The author order follows provisional metadata in the canonical
+archive and needs lab confirmation before publication. Use the exact public
+commit or release URL. The source is released under BSD-3-Clause; see
+[`LICENSE`](LICENSE). Individual author attribution remains provisional and
+needs lab confirmation before publication.
 
-## Citing a specific artifact
+## Cite specific files
 
-Use the archive citation above and identify the file or directory and the same
-commit. Example: “Cleaning totals were taken from `json files to be
-rescued/cleaned/rescue_manifest.json` (Manjesh et al., 2026, commit
-`a223963`).” For exact links, replace `PATH` in:
+Cite the software repository and identify the file path and exact commit. For
+example: “The clean-bout Jetson detector was reviewed in `code/led_sleep_detect_clean.py`
+(Manjesh et al., 2026, commit `COMMIT_SHA`).” A commit-specific link uses:
 
-`https://github.com/FluentFlier/ASDDS/blob/a223963cd1da8d89148b502b7b12af6d4eefb553/PATH`
+`https://github.com/FluentFlier/ASDDS-code/blob/COMMIT_SHA/PATH`
 
-with the artifact's repository-relative path; URL-encode spaces.
-
-## Associated manuscript
-
-The manuscript in the archive is a working coauthor-review document, not a
-published article. Cite it as an unpublished manuscript only when it is the
-specific object being discussed. Do not cite it as a journal article or assign
-it a DOI.
+Replace `COMMIT_SHA` and `PATH` with the full Git commit ID and repository-
+relative path. Cite a DOI if a later fixed public release receives one.
 
 ## BibTeX
 
-A machine-readable BibTeX entry is in [`CITATION.bib`](CITATION.bib). The same
-provisional authorship and private-access limits apply.
+A machine-readable entry is in [`CITATION.bib`](CITATION.bib). Confirm the author
+order before using it in a publication.
