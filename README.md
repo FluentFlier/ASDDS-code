@@ -1,29 +1,55 @@
-# ASDDS citation reference
+# ASDDS citation and artifact reference
 
-This small public repository is a citation and access reference for the ASDDS
-bee sleep motion-detection experiment archive. It contains no experimental data,
-correspondence, figures, or executable analysis code.
+Use this repository to find citation-ready metadata and identify which part of
+the ASDDS research archive supports a result. The actual research archive
+remains private; this repository contains no raw or cleaned data, analysis code,
+figures, manuscript files, or correspondence.
 
-## Research archive
+## Cite the archive
 
-The canonical archive is [`FluentFlier/ASDDS`](https://github.com/FluentFlier/ASDDS).
-It is currently private while GitHub-side correspondence cleanup and research
-release decisions are pending. Access to the archive is required to inspect or
-reuse its code, data, manifests, or figures. This public reference repository
-does not make those materials public.
+The preferred citation, formatted for copy/paste, is in [`CITATION.md`](CITATION.md).
+GitHub also reads [`CITATION.cff`](CITATION.cff) and offers APA and BibTeX in
+**Cite this repository**. A standalone BibTeX entry is in
+[`CITATION.bib`](CITATION.bib).
 
-## Citation
+The citation identifies the exact ASDDS Git commit `a223963`
+([full commit](https://github.com/FluentFlier/ASDDS/commit/a223963cd1da8d89148b502b7b12af6d4eefb553)).
+The canonical repository is [`FluentFlier/ASDDS`](https://github.com/FluentFlier/ASDDS).
+It is private, so readers need an invitation to inspect the cited materials.
 
-The archive's title and repository URL are recorded in [`CITATION.cff`](CITATION.cff).
-This is provisional citation metadata, not a publication record or DOI. Author
-order and licensing have not been confirmed. Please confirm the appropriate
-authors and archive access before citing or reusing the research materials.
+## Find the supporting artifact
 
-## Scope and status
+Cite the archive once, then name the exact path and commit for each artifact used.
+For numerical cleaning totals, cite the manifest; for a specific row or source,
+include the corresponding record audit and source filename.
 
-This repository is only a public pointer and citation record. It does not
-contain the bee-motion dataset, raw or cleaned logs, private correspondence,
-manuscript files, or analysis outputs. The associated research archive remains
-under review; its cleaning rules preserve unresolved overlaps and lower-bound
-endpoints, and some session metadata and condition assignments remain
-incomplete.
+| Use | ASDDS artifact |
+|---|---|
+| Focused 34-session rescue outputs and totals | `json files to be rescued/cleaned/rescue_manifest.json` |
+| Focused rescue row provenance | `json files to be rescued/cleaned/rescue_record_audit.json` |
+| Remaining cleaned primary logs and totals | `bee_motion_logs/cleaned/cleaning_manifest.json` |
+| Remaining primary row provenance | `bee_motion_logs/cleaned/cleaning_record_audit.json` |
+| Cleaning rules and schema descriptions | `docs/DATA_AND_CLEANING.md` |
+| Decisions and unresolved scientific choices | `docs/DECISIONS.md` and `docs/PROFESSOR_REVIEW.md` |
+| Acquisition and rescue software | `code/` and `rescue_sleep_logs.py` |
+| MATLAB comparison method | `matlab/` |
+| Derived condition plots | `output/pdf/` |
+| Working manuscript for coauthor review | `output/professor_handoff_20260722/ASDDS_manuscript_for_professor_review.pdf` |
+
+Use a commit-specific URL of the form
+`https://github.com/FluentFlier/ASDDS/blob/a223963cd1da8d89148b502b7b12af6d4eefb553/PATH`.
+Replace `PATH` with the artifact path, URL-encoding spaces. The cited commit is
+an archived repository snapshot; current working notes may have changed since
+that commit.
+
+## Publication and access limits
+
+This is a working coauthor-review archive, not a DOI-backed publication or a
+final biological dataset. No associated paper DOI or data DOI is claimed here.
+Author order and reuse licenses have not been confirmed. Do not infer treatment
+conditions from filenames or treat lower-bound endpoints as known wake times.
+The archive documents remaining scientific and provenance limitations.
+
+A persistent DOI should be assigned to a cleared, fixed release of the actual
+research archive, with confirmed authors and license. The public citation
+reference itself is not a substitute for that archival release.
