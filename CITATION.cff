@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: >-
+  Provisional reference record for the private ASDDS research archive. Confirm
+  authorship and access with the maintainers before citing or reusing the
+  underlying research materials.
+title: >-
+  Bee sleep motion-detection experiment and data rescue
+type: dataset
+repository-code: https://github.com/FluentFlier/ASDDS
+url: https://github.com/FluentFlier/ASDDS
+abstract: >-
+  Provisional citation reference for a working research archive containing
+  Jetson acquisition code, sleep logs, audited cleaned data, record-level
+  provenance, figures, reports, and reproducibility checks. The underlying
+  archive is private and remains under scientific and release review.
+keywords:
+  - Apis mellifera
+  - sleep-like immobility
+  - computer vision
+  - Jetson Nano
